@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FOR MY BABY</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <h1>
+  FOR MY MOST GORGEOUS BABY GIRL <span id="herName">SHAFAQ</span> 💖
+</h1>
+
+  <select id="moodSelect">
+    <option value="">-- Select Mood --</option>
+    <option value="sad">Sad</option>
+    <option value="happy">Happy</option>
+    <option value="stressed">Stressed</option>
+    <option value="bored">Bored</option>
+    <option value="angry">Angry</option>
+  </select>
+
+  <button onclick="getCompliment()">Get Compliment 💌</button>
+
+  <div id="compliment">Your special message will appear here 💭</div>
+
+  <script>
+  const compliments = {
+    sad: [
+      "It’s okay to feel sad — your heart is beautiful even when it's hurting. 💖",
+      "You matter more than you know. I'm always here for you. 🌈",
+      "Even rain brings flowers. This will pass. 🌧️🌸",
+      "You're not alone. I'm just one message away. 🤝",
+      "Your feelings are valid. Let them flow. 💧",
+      "If I could, I’d hold your sadness in my arms and whisper it away. 🤗",
+      "You have such a gentle soul — protect it. 🌿",
+      "Sadness shows how deeply you care. That’s beautiful. ❤️",
+      "Take your time to heal. I’ll be here, always. ⏳",
+      "You’ve survived all your worst days. You’ll survive this too. 🌟",
+      "Your eyes deserve only tears of joy. 😢💫",
+      "Even the moon has dark phases, and yet it shines. 🌙",
+      "I'm proud of you, even on your low days. 💗",
+      "You light up my world even when yours feels dim. 🔦",
+      "Your sadness doesn't make you any less lovable — just more human. 🤍",
+      "I'd sit silently beside you if that's what comforts you. 🪷",
+      "Let yourself rest. You’re doing your best. 🛏️",
+      "Pain doesn’t mean you’re weak. It means you’re alive. 💔❤️",
+      "There’s magic in how you keep going. 🔮",
+      "You mean so much to me, no matter how you feel today. 🫶"
+    ],
+    happy: [
+      "Seeing you happy is my favorite view. 😊",
+      "Your smile should be in a museum. 🎨",
+      "You glow differently when you're happy. ✨",
+      "You make happiness look so easy and beautiful. 🌟",
+      "Your joy is contagious — never stop spreading it. 🥰",
+      "When you're happy, the world feels right. 🌍",
+      "You shine so bright, even the sun gets jealous. ☀️",
+      "You radiate light and warmth. 🌞",
+      "I could watch you smile for hours. 💫",
+      "You bring color to my black-and-white days. 🎨🖌️",
+      "Your happiness is my peace. 🕊️",
+      "I’d do anything to keep that smile forever. 💌",
+      "You're even more gorgeous when you're glowing with joy. 🌹",
+      "You're a walking sunshine. ☀️",
+      "Keep smiling — it’s my favorite thing about you. 🧡",
+      "You deserve all this happiness and more. 🎁",
+      "You're a spark in a dull world. ✨",
+      "You're my little burst of happiness. 💕",
+      "You're the sunshine on my cloudy days. ☁️🌞",
+      "May your happy days never end. 💖"
+    ],
+    stressed: [
+      "You don’t have to be perfect — just real and loved. 🌿",
+      "Take a deep breath. You’ve got this. 💪",
+      "You’re doing better than you think. 🌼",
+      "Your effort matters. I see it. 🌟",
+      "You deserve rest, not guilt. 🛏️",
+      "You are not a burden. You're a blessing. 🫂",
+      "Let go of what you can’t control. 🌊",
+      "You don't have to carry everything alone. 🧳",
+      "I'm here to lighten your load. 🤍",
+      "One step at a time. You're moving forward. 👣",
+      "Even when you're overwhelmed, you're incredible. 🌻",
+      "You're strong, even when tired. 💞",
+      "Your energy is precious. Don’t drain it all. 💧",
+      "Stress doesn’t define you. Your heart does. ❤️",
+      "You’re not alone in this. 🤝",
+      "You owe yourself the love you give so freely. 💌",
+      "Give yourself permission to pause. ⏸️",
+      "You are worthy of peace. 🕊️",
+      "Breathe in calm, breathe out the worry. 🌬️",
+      "No matter what, I’m proud of how far you’ve come. 🏅"
+    ],
+    bored: [
+      "Let’s make today fun together — I'm just one text away. 📱",
+      "Even your boredom is interesting to me. 😄",
+      "Want me to tell you a secret? You’re the cutest even when bored. 💕",
+      "Let’s turn boredom into memories. 🌈",
+      "You make ordinary moments magical. ✨",
+      "Your mind is too brilliant to stay bored for long. 🧠",
+      "You’re never boring to me. Ever. 🔥",
+      "Let’s plan a mini adventure together. 🌍",
+      "Even when you’re doing nothing, you still amaze me. 🌟",
+      "I'd rather be bored with you than excited without you. 🥹",
+      "Your creativity is waiting to burst out. 🎨",
+      "Wanna daydream together? ☁️",
+      "You have a million beautiful thoughts — share one? 💭",
+      "Let’s be lazy and lovely together. 🍫🍿",
+      "You're like a storm of calm and chaos — in the best way. ⚡🌤️",
+      "Even your silence is soothing. 🕯️",
+      "Your presence is my favorite kind of distraction. 😌",
+      "I never get bored of you — not even for a second. 🔁",
+      "You're the spark in any dull moment. 💫",
+      "Even boredom is cute when it’s you feeling it. 💗"
+    ],
+    angry: [
+      "I care more about understanding you than being right. ❤️",
+      "It’s okay to feel this way — your feelings matter. 😤➡️🤍",
+      "Let it out. I’ll still be here. 🫂",
+      "Even when you're angry, I love you. 🔥💓",
+      "You're not too much — you're just deeply feeling. 🌊",
+      "Your passion is part of your beauty. 🔥",
+      "I want to be your calm, not your storm. 🌈",
+      "Anger is a sign of care. Let’s work through it. 💪",
+      "Whatever it is, we’ll get through it — together. 👫",
+      "I respect your boundaries, always. 🛡️",
+      "Let’s breathe and come back stronger. 🧘",
+      "It’s okay to be upset. You’re still my favorite person. 💕",
+      "I’m listening, not judging. 🫶",
+      "Even in anger, you’re worthy of love. 🌹",
+      "You can be mad and loved at the same time. ❤️‍🔥",
+      "Let’s sit in silence until it passes — I won’t leave. 🧡",
+      "You matter more to me than this argument. 🔄",
+      "Let’s fix this, not each other. 🪢",
+      "You're allowed to be upset. You’re human. 🤖❌❤️✅",
+      "No emotion could ever make me stop loving you. 🩷"
+  ]
+  };
+
+  function getCompliment() {
+    const mood = document.getElementById("moodSelect").value;
+    const display = document.getElementById("compliment");
+    display.classList.remove('fade-in');
+
+    if (!mood) {
+      display.textContent = "Please select a mood first ❤️";
+      return;
+    }
+
+    const moodCompliments = compliments[mood];
+    const random = Math.floor(Math.random() * moodCompliments.length);
+    display.textContent = moodCompliments[random];
+    void display.offsetWidth;
+    display.classList.add('fade-in');
+  }
+</script>
+
+
+</body>
+</html>
